@@ -1,4 +1,4 @@
-﻿namespace Desafio01Arquivos
+﻿namespace Desafio01Arquivos.Models
 {
     internal class Pessoa
     {

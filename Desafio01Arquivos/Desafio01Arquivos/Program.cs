@@ -1,4 +1,7 @@
-﻿namespace Desafio01Arquivos
+﻿using Desafio01Arquivos.Helpers;
+using Desafio01Arquivos.Models;
+
+namespace Desafio01Arquivos
 {
     public class Program
     {
@@ -9,7 +12,7 @@
 
             Util.PopularArquivoNasListas(pessoas, alunos, "Desafio01.txt");
 
-            Console.WriteLine("Foram criados {0} objetos Pessoa e {1} objetos Aluno.\n", pessoas.Count, alunos.Count );
+            Console.WriteLine("Foram criados {0} objetos Pessoa e {1} objetos Aluno.\n", pessoas.Count, alunos.Count);
 
             Console.WriteLine("Os cursos referentes aos {0} alunos estão listados abaixo:\n", alunos.Count);
             Util.MostrarListaAluno(alunos);
