@@ -1,6 +1,6 @@
 ﻿namespace Desafio02MiniERP
 {
-    partial class frmPrincipal
+    partial class FrmPrincipal
     {
         /// <summary>
         ///  Required designer variable.
@@ -37,8 +37,8 @@
             this.consultarProdutosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAdicionar = new System.Windows.Forms.TextBox();
+            this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.grpSelecionarCliente = new System.Windows.Forms.GroupBox();
             this.rdoNomeCliente = new System.Windows.Forms.RadioButton();
@@ -47,7 +47,7 @@
             this.rdoDescricao = new System.Windows.Forms.RadioButton();
             this.rdoIdProduto = new System.Windows.Forms.RadioButton();
             this.btnAdicionar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCodigoBarras = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,12 +56,13 @@
             this.colIdFornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGerarNfe = new System.Windows.Forms.Button();
             this.btnGerarPdf = new System.Windows.Forms.Button();
-            this.lbl_ValorVenda = new System.Windows.Forms.Label();
+            this.lbl_TotalPagar = new System.Windows.Forms.Label();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.mnsPrincipal.SuspendLayout();
             this.grpSelecionarCliente.SuspendLayout();
             this.grpAdicionarProdutos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.SuspendLayout();
             // 
             // mnsPrincipal
@@ -127,26 +128,28 @@
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.sobreToolStripMenuItem.Text = "Sobre";
+            this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click_1);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
-            // textBox2
+            // txtAdicionar
             // 
-            this.textBox2.Location = new System.Drawing.Point(15, 58);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(203, 23);
-            this.textBox2.TabIndex = 4;
+            this.txtAdicionar.Location = new System.Drawing.Point(15, 58);
+            this.txtAdicionar.Name = "txtAdicionar";
+            this.txtAdicionar.Size = new System.Drawing.Size(203, 23);
+            this.txtAdicionar.TabIndex = 4;
             // 
-            // textBox1
+            // txtPesquisar
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 59);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(179, 23);
-            this.textBox1.TabIndex = 2;
+            this.txtPesquisar.Location = new System.Drawing.Point(6, 59);
+            this.txtPesquisar.Name = "txtPesquisar";
+            this.txtPesquisar.Size = new System.Drawing.Size(179, 23);
+            this.txtPesquisar.TabIndex = 2;
             // 
             // btnPesquisar
             // 
@@ -156,13 +159,14 @@
             this.btnPesquisar.TabIndex = 7;
             this.btnPesquisar.Text = "Pesquisar ...";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // grpSelecionarCliente
             // 
             this.grpSelecionarCliente.Controls.Add(this.rdoNomeCliente);
             this.grpSelecionarCliente.Controls.Add(this.rdoIdCliente);
             this.grpSelecionarCliente.Controls.Add(this.btnPesquisar);
-            this.grpSelecionarCliente.Controls.Add(this.textBox1);
+            this.grpSelecionarCliente.Controls.Add(this.txtPesquisar);
             this.grpSelecionarCliente.Location = new System.Drawing.Point(12, 39);
             this.grpSelecionarCliente.Name = "grpSelecionarCliente";
             this.grpSelecionarCliente.Size = new System.Drawing.Size(330, 115);
@@ -197,7 +201,8 @@
             this.grpAdicionarProdutos.Controls.Add(this.rdoDescricao);
             this.grpAdicionarProdutos.Controls.Add(this.rdoIdProduto);
             this.grpAdicionarProdutos.Controls.Add(this.btnAdicionar);
-            this.grpAdicionarProdutos.Controls.Add(this.textBox2);
+            this.grpAdicionarProdutos.Controls.Add(this.txtAdicionar);
+            this.grpAdicionarProdutos.Enabled = false;
             this.grpAdicionarProdutos.Location = new System.Drawing.Point(348, 39);
             this.grpAdicionarProdutos.Name = "grpAdicionarProdutos";
             this.grpAdicionarProdutos.Size = new System.Drawing.Size(330, 115);
@@ -235,28 +240,29 @@
             this.btnAdicionar.TabIndex = 8;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
-            // dataGridView1
+            // dgvProdutos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvProdutos.AllowUserToAddRows = false;
+            this.dgvProdutos.AllowUserToDeleteRows = false;
+            this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
             this.colCodigoBarras,
             this.colDescricao,
             this.colMarca,
             this.colValor,
             this.colIdFornecedor});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 191);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(762, 183);
-            this.dataGridView1.TabIndex = 10;
+            this.dgvProdutos.Location = new System.Drawing.Point(12, 191);
+            this.dgvProdutos.MultiSelect = false;
+            this.dgvProdutos.Name = "dgvProdutos";
+            this.dgvProdutos.ReadOnly = true;
+            this.dgvProdutos.RowHeadersVisible = false;
+            this.dgvProdutos.RowTemplate.Height = 25;
+            this.dgvProdutos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvProdutos.Size = new System.Drawing.Size(762, 183);
+            this.dgvProdutos.TabIndex = 10;
             // 
             // colId
             // 
@@ -314,6 +320,7 @@
             this.btnGerarNfe.TabIndex = 11;
             this.btnGerarNfe.Text = "Gerar NF-e";
             this.btnGerarNfe.UseVisualStyleBackColor = true;
+            this.btnGerarNfe.Click += new System.EventHandler(this.btnGerarNfe_Click);
             // 
             // btnGerarPdf
             // 
@@ -324,15 +331,15 @@
             this.btnGerarPdf.Text = "Gerar PDF";
             this.btnGerarPdf.UseVisualStyleBackColor = true;
             // 
-            // lbl_ValorVenda
+            // lbl_TotalPagar
             // 
-            this.lbl_ValorVenda.AutoSize = true;
-            this.lbl_ValorVenda.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_ValorVenda.Location = new System.Drawing.Point(607, 390);
-            this.lbl_ValorVenda.Name = "lbl_ValorVenda";
-            this.lbl_ValorVenda.Size = new System.Drawing.Size(166, 21);
-            this.lbl_ValorVenda.TabIndex = 13;
-            this.lbl_ValorVenda.Text = "Total a Pagar: R$ 00,00";
+            this.lbl_TotalPagar.AutoSize = true;
+            this.lbl_TotalPagar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_TotalPagar.Location = new System.Drawing.Point(572, 390);
+            this.lbl_TotalPagar.Name = "lbl_TotalPagar";
+            this.lbl_TotalPagar.Size = new System.Drawing.Size(104, 21);
+            this.lbl_TotalPagar.TabIndex = 13;
+            this.lbl_TotalPagar.Text = "Total a Pagar: ";
             // 
             // btnNovo
             // 
@@ -342,22 +349,34 @@
             this.btnNovo.TabIndex = 14;
             this.btnNovo.Text = "Nova Venda";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // frmPrincipal
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTotal.Location = new System.Drawing.Point(682, 390);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(49, 21);
+            this.lblTotal.TabIndex = 15;
+            this.lblTotal.Text = "00,00";
+            // 
+            // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 420);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.lbl_ValorVenda);
+            this.Controls.Add(this.lbl_TotalPagar);
             this.Controls.Add(this.btnGerarPdf);
             this.Controls.Add(this.btnGerarNfe);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProdutos);
             this.Controls.Add(this.grpAdicionarProdutos);
             this.Controls.Add(this.grpSelecionarCliente);
             this.Controls.Add(this.mnsPrincipal);
             this.MainMenuStrip = this.mnsPrincipal;
-            this.Name = "frmPrincipal";
+            this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Vendas";
             this.mnsPrincipal.ResumeLayout(false);
@@ -366,7 +385,7 @@
             this.grpSelecionarCliente.PerformLayout();
             this.grpAdicionarProdutos.ResumeLayout(false);
             this.grpAdicionarProdutos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,16 +402,16 @@
         private ToolStripMenuItem consultarProdutosToolStripMenuItem;
         private ToolStripMenuItem sobreToolStripMenuItem;
         private ToolStripMenuItem sairToolStripMenuItem;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtAdicionar;
+        private TextBox txtPesquisar;
         private Button btnPesquisar;
         private GroupBox grpSelecionarCliente;
         private GroupBox grpAdicionarProdutos;
         private Button btnAdicionar;
-        private DataGridView dataGridView1;
+        private DataGridView dgvProdutos;
         private Button btnGerarNfe;
         private Button btnGerarPdf;
-        private Label lbl_ValorVenda;
+        private Label lbl_TotalPagar;
         private Button btnNovo;
         private DataGridViewTextBoxColumn colId;
         private DataGridViewTextBoxColumn colCodigoBarras;
@@ -404,5 +423,6 @@
         private RadioButton rdoIdCliente;
         private RadioButton rdoDescricao;
         private RadioButton rdoIdProduto;
+        private Label lblTotal;
     }
 }

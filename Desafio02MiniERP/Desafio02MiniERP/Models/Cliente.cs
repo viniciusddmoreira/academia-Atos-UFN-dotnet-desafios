@@ -203,6 +203,44 @@ namespace Desafio02MiniERP.Models
             }
         }
 
+        public Cliente ConsultarClienteId(int id)
+        {
+            Banco bd = new Banco();
+
+            try
+            {
+                SqlConnection cn = bd.AbrirConexao();
+                SqlCommand command = new SqlCommand("SELECT * FROM clientes", cn);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (reader.GetInt32(0) == id)
+                    {
+                        Id = reader.GetInt32(0);
+                        Nome = reader.GetString(1);
+                        Endereco = reader.GetString(2);
+                        Telefone = reader.GetString(3);
+                        Email = reader.GetString(4);
+                        Cpf = reader.GetString(5);
+
+                        return this;
+                    }
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                bd.FecharConexao();
+            }
+        }
+
         public DataTable ConsultarPorNome()
         {
             Banco bd = new Banco();

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Desafio02MiniERP.Helpers;
 using System.Data.SqlTypes;
+using System.ComponentModel;
 
 namespace Desafio02MiniERP.Models
 {
@@ -182,6 +183,44 @@ namespace Desafio02MiniERP.Models
                 while (reader.Read())
                 {
                     if (reader.GetString(1) == descricao)
+                    {
+                        Id = reader.GetInt32(0);
+                        CodigoBarra = reader.GetString(1);
+                        Marca = reader.GetString(2);
+                        Descricao = reader.GetString(3);
+                        Valor = reader.GetDecimal(4);
+                        IdFornecedor = reader.GetInt32(5);
+
+                        return this;
+                    }
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                bd.FecharConexao();
+            }
+        }
+
+        public Produto ConsultarProdutoId(int id)
+        {
+            Banco bd = new Banco();
+
+            try
+            {
+                SqlConnection cn = bd.AbrirConexao();
+                SqlCommand command = new SqlCommand("SELECT * FROM produtos", cn);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (reader.GetInt32(0) == id)
                     {
                         Id = reader.GetInt32(0);
                         CodigoBarra = reader.GetString(1);

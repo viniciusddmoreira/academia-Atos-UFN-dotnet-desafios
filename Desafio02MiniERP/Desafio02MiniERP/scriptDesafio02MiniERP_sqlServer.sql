@@ -29,3 +29,22 @@ email varchar(45),
 cpf varchar(14) NOT NULL
 
 );
+
+
+CREATE TABLE notas_fiscais (
+id int IDENTITY PRIMARY KEY,
+id_cliente int NOT NULL,
+data_compra datetime NOT NULL,
+total_pagar decimal(19,2) NOT NULL
+
+FOREIGN KEY (id_cliente) REFERENCES clientes(id)
+);
+
+CREATE TABLE notas_produtos (
+id int IDENTITY PRIMARY KEY,
+id_nota_fiscal int NOT NULL,
+id_produto int NOT NULL
+
+FOREIGN KEY (id_nota_fiscal) REFERENCES notas_fiscais(id),
+FOREIGN KEY (id_produto) REFERENCES produtos(id)
+);
