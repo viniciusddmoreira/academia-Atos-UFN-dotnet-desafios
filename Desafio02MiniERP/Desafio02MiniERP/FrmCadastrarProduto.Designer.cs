@@ -103,28 +103,28 @@
             this.txtCodigoBarra.Location = new System.Drawing.Point(12, 90);
             this.txtCodigoBarra.Name = "txtCodigoBarra";
             this.txtCodigoBarra.Size = new System.Drawing.Size(121, 23);
-            this.txtCodigoBarra.TabIndex = 5;
+            this.txtCodigoBarra.TabIndex = 2;
             // 
             // txtDescricao
             // 
             this.txtDescricao.Location = new System.Drawing.Point(12, 27);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(313, 23);
-            this.txtDescricao.TabIndex = 6;
+            this.txtDescricao.TabIndex = 0;
             // 
             // txtMarca
             // 
             this.txtMarca.Location = new System.Drawing.Point(139, 90);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(186, 23);
-            this.txtMarca.TabIndex = 7;
+            this.txtMarca.TabIndex = 3;
             // 
             // txtIdFornecedor
             // 
             this.txtIdFornecedor.Location = new System.Drawing.Point(12, 146);
             this.txtIdFornecedor.Name = "txtIdFornecedor";
             this.txtIdFornecedor.Size = new System.Drawing.Size(81, 23);
-            this.txtIdFornecedor.TabIndex = 8;
+            this.txtIdFornecedor.TabIndex = 4;
             // 
             // btnPesquisar
             // 
@@ -132,7 +132,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(331, 25);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(79, 25);
-            this.btnPesquisar.TabIndex = 19;
+            this.btnPesquisar.TabIndex = 1;
             this.btnPesquisar.Text = "Pesquisar ...";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -143,7 +143,7 @@
             this.btnNovo.Location = new System.Drawing.Point(12, 188);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
-            this.btnNovo.TabIndex = 23;
+            this.btnNovo.TabIndex = 6;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
@@ -153,7 +153,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(93, 188);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 22;
+            this.btnSalvar.TabIndex = 7;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -164,7 +164,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(255, 188);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 21;
+            this.btnExcluir.TabIndex = 9;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -175,7 +175,7 @@
             this.btnEditar.Location = new System.Drawing.Point(174, 188);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 20;
+            this.btnEditar.TabIndex = 8;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -253,7 +253,7 @@
             this.txtValor.Location = new System.Drawing.Point(100, 146);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(100, 23);
-            this.txtValor.TabIndex = 25;
+            this.txtValor.TabIndex = 5;
             // 
             // FrmCadastrarProduto
             // 

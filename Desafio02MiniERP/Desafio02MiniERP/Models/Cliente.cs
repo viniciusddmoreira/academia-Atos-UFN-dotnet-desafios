@@ -34,19 +34,12 @@ namespace Desafio02MiniERP.Models
 
         public bool ValidarCamposCliente(Cliente Cliente)
         {
-            //MessageBox.Show("cpf " + Util.CpfValido(Cpf).ToString());
-            //MessageBox.Show("nome " + Util.NomeValido(Nome).ToString());
-            //MessageBox.Show("endereco " + Util.ContemLetrasOuNumeros(Endereco).ToString());
-            //MessageBox.Show("telefone " + Util.ContemLetrasOuNumeros(Telefone).ToString());
-            //MessageBox.Show("email " + Util.ContemLetrasOuNumeros(Email).ToString());
-            if (!(Util.CpfValido(Cpf) && Util.NomeValido(Nome) && Util.ContemLetrasOuNumeros(Endereco) 
+            
+            if (!(Util.CpfValido(Cpf) && Util.ContemLetras(Nome) && Util.ContemLetrasOuNumeros(Endereco) 
                 && Util.ContemLetrasOuNumeros(Telefone) && Util.EmailValido(Email))) return false;
-            //if (Util.ContemLetras(Cnpj) && Util.ContemNumeros(NomeFantasia) && Util.ContemNumeros(RazaoSocial)) return false;
-
-            return true;
-            //if (String.IsNullOrEmpty(RazaoSocial)) return false;
-            //if (String.IsNullOrEmpty(NomeFantasia)) return false;
-            //if (String.IsNullOrEmpty(Cnpj)) return false;
+            if (Util.ContemNumeros(Nome)) return false;
+            
+            return true;         
         }
 
         public bool GravarCliente()

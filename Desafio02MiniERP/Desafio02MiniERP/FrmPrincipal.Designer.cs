@@ -33,8 +33,6 @@
             this.tsmiCadastrarProduto = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCadastrarFornecedor = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCadastrarCliente = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarProdutosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtAdicionar = new System.Windows.Forms.TextBox();
@@ -57,7 +55,6 @@
             this.btnGerarNfe = new System.Windows.Forms.Button();
             this.btnGerarPdf = new System.Windows.Forms.Button();
             this.lbl_TotalPagar = new System.Windows.Forms.Label();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.mnsPrincipal.SuspendLayout();
             this.grpSelecionarCliente.SuspendLayout();
@@ -69,7 +66,6 @@
             // 
             this.mnsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroToolStripMenuItem,
-            this.consultarToolStripMenuItem,
             this.sobreToolStripMenuItem,
             this.sairToolStripMenuItem});
             this.mnsPrincipal.Location = new System.Drawing.Point(0, 0);
@@ -109,20 +105,6 @@
             this.tsmiCadastrarCliente.Text = "Cliente";
             this.tsmiCadastrarCliente.Click += new System.EventHandler(this.tsmiCadastrarCliente_Click);
             // 
-            // consultarToolStripMenuItem
-            // 
-            this.consultarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultarProdutosToolStripMenuItem});
-            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.consultarToolStripMenuItem.Text = "Consultar";
-            // 
-            // consultarProdutosToolStripMenuItem
-            // 
-            this.consultarProdutosToolStripMenuItem.Name = "consultarProdutosToolStripMenuItem";
-            this.consultarProdutosToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.consultarProdutosToolStripMenuItem.Text = "Consultar Nota Fiscal";
-            // 
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
@@ -142,7 +124,7 @@
             this.txtAdicionar.Location = new System.Drawing.Point(15, 58);
             this.txtAdicionar.Name = "txtAdicionar";
             this.txtAdicionar.Size = new System.Drawing.Size(203, 23);
-            this.txtAdicionar.TabIndex = 4;
+            this.txtAdicionar.TabIndex = 6;
             // 
             // txtPesquisar
             // 
@@ -156,7 +138,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(191, 58);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(84, 23);
-            this.btnPesquisar.TabIndex = 7;
+            this.btnPesquisar.TabIndex = 3;
             this.btnPesquisar.Text = "Pesquisar ...";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -180,7 +162,7 @@
             this.rdoNomeCliente.Location = new System.Drawing.Point(106, 27);
             this.rdoNomeCliente.Name = "rdoNomeCliente";
             this.rdoNomeCliente.Size = new System.Drawing.Size(58, 19);
-            this.rdoNomeCliente.TabIndex = 9;
+            this.rdoNomeCliente.TabIndex = 1;
             this.rdoNomeCliente.TabStop = true;
             this.rdoNomeCliente.Text = "Nome";
             this.rdoNomeCliente.UseVisualStyleBackColor = true;
@@ -191,7 +173,7 @@
             this.rdoIdCliente.Location = new System.Drawing.Point(6, 27);
             this.rdoIdCliente.Name = "rdoIdCliente";
             this.rdoIdCliente.Size = new System.Drawing.Size(76, 19);
-            this.rdoIdCliente.TabIndex = 8;
+            this.rdoIdCliente.TabIndex = 0;
             this.rdoIdCliente.TabStop = true;
             this.rdoIdCliente.Text = "ID Cliente";
             this.rdoIdCliente.UseVisualStyleBackColor = true;
@@ -216,7 +198,7 @@
             this.rdoDescricao.Location = new System.Drawing.Point(115, 27);
             this.rdoDescricao.Name = "rdoDescricao";
             this.rdoDescricao.Size = new System.Drawing.Size(76, 19);
-            this.rdoDescricao.TabIndex = 11;
+            this.rdoDescricao.TabIndex = 5;
             this.rdoDescricao.TabStop = true;
             this.rdoDescricao.Text = "Descrição";
             this.rdoDescricao.UseVisualStyleBackColor = true;
@@ -227,7 +209,7 @@
             this.rdoIdProduto.Location = new System.Drawing.Point(15, 27);
             this.rdoIdProduto.Name = "rdoIdProduto";
             this.rdoIdProduto.Size = new System.Drawing.Size(82, 19);
-            this.rdoIdProduto.TabIndex = 10;
+            this.rdoIdProduto.TabIndex = 4;
             this.rdoIdProduto.TabStop = true;
             this.rdoIdProduto.Text = "ID Produto";
             this.rdoIdProduto.UseVisualStyleBackColor = true;
@@ -237,7 +219,7 @@
             this.btnAdicionar.Location = new System.Drawing.Point(224, 59);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
-            this.btnAdicionar.TabIndex = 8;
+            this.btnAdicionar.TabIndex = 7;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
@@ -314,50 +296,42 @@
             // btnGerarNfe
             // 
             this.btnGerarNfe.AutoSize = true;
-            this.btnGerarNfe.Location = new System.Drawing.Point(98, 386);
+            this.btnGerarNfe.Enabled = false;
+            this.btnGerarNfe.Location = new System.Drawing.Point(12, 386);
             this.btnGerarNfe.Name = "btnGerarNfe";
             this.btnGerarNfe.Size = new System.Drawing.Size(80, 25);
-            this.btnGerarNfe.TabIndex = 11;
+            this.btnGerarNfe.TabIndex = 8;
             this.btnGerarNfe.Text = "Gerar NF-e";
             this.btnGerarNfe.UseVisualStyleBackColor = true;
             this.btnGerarNfe.Click += new System.EventHandler(this.btnGerarNfe_Click);
             // 
             // btnGerarPdf
             // 
-            this.btnGerarPdf.Location = new System.Drawing.Point(184, 386);
+            this.btnGerarPdf.Location = new System.Drawing.Point(98, 386);
             this.btnGerarPdf.Name = "btnGerarPdf";
             this.btnGerarPdf.Size = new System.Drawing.Size(75, 25);
-            this.btnGerarPdf.TabIndex = 12;
+            this.btnGerarPdf.TabIndex = 9;
             this.btnGerarPdf.Text = "Gerar PDF";
             this.btnGerarPdf.UseVisualStyleBackColor = true;
+            this.btnGerarPdf.Click += new System.EventHandler(this.btnGerarPdf_Click);
             // 
             // lbl_TotalPagar
             // 
             this.lbl_TotalPagar.AutoSize = true;
-            this.lbl_TotalPagar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_TotalPagar.Location = new System.Drawing.Point(572, 390);
+            this.lbl_TotalPagar.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_TotalPagar.Location = new System.Drawing.Point(530, 386);
             this.lbl_TotalPagar.Name = "lbl_TotalPagar";
-            this.lbl_TotalPagar.Size = new System.Drawing.Size(104, 21);
+            this.lbl_TotalPagar.Size = new System.Drawing.Size(167, 30);
             this.lbl_TotalPagar.TabIndex = 13;
-            this.lbl_TotalPagar.Text = "Total a Pagar: ";
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Location = new System.Drawing.Point(12, 386);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(80, 25);
-            this.btnNovo.TabIndex = 14;
-            this.btnNovo.Text = "Nova Venda";
-            this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            this.lbl_TotalPagar.Text = "Total a Pagar: R$";
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotal.Location = new System.Drawing.Point(682, 390);
+            this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTotal.Location = new System.Drawing.Point(689, 386);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(49, 21);
+            this.lblTotal.Size = new System.Drawing.Size(62, 30);
             this.lblTotal.TabIndex = 15;
             this.lblTotal.Text = "00,00";
             // 
@@ -367,7 +341,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 420);
             this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.lbl_TotalPagar);
             this.Controls.Add(this.btnGerarPdf);
             this.Controls.Add(this.btnGerarNfe);
@@ -378,7 +351,7 @@
             this.MainMenuStrip = this.mnsPrincipal;
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sistema de Vendas";
+            this.Text = "Sistema de Vendas Mini ERP";
             this.mnsPrincipal.ResumeLayout(false);
             this.mnsPrincipal.PerformLayout();
             this.grpSelecionarCliente.ResumeLayout(false);
@@ -398,8 +371,6 @@
         private ToolStripMenuItem tsmiCadastrarProduto;
         private ToolStripMenuItem tsmiCadastrarFornecedor;
         private ToolStripMenuItem tsmiCadastrarCliente;
-        private ToolStripMenuItem consultarToolStripMenuItem;
-        private ToolStripMenuItem consultarProdutosToolStripMenuItem;
         private ToolStripMenuItem sobreToolStripMenuItem;
         private ToolStripMenuItem sairToolStripMenuItem;
         private TextBox txtAdicionar;
@@ -412,7 +383,6 @@
         private Button btnGerarNfe;
         private Button btnGerarPdf;
         private Label lbl_TotalPagar;
-        private Button btnNovo;
         private DataGridViewTextBoxColumn colId;
         private DataGridViewTextBoxColumn colCodigoBarras;
         private DataGridViewTextBoxColumn colDescricao;

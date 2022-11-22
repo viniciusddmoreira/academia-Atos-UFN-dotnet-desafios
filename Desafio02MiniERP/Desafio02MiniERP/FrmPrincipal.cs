@@ -1,4 +1,5 @@
 using Desafio02MiniERP.Databases;
+using Desafio02MiniERP.Helpers;
 using Desafio02MiniERP.Models;
 using System.Data;
 
@@ -38,7 +39,6 @@ namespace Desafio02MiniERP
             frmCadastrarProduto.Show();
         }
 
-        //List<Cliente> clientes = new List<Cliente>();
         NotaFiscal notaFiscal;
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
@@ -50,23 +50,40 @@ namespace Desafio02MiniERP
             }
             else
             {
+
                 if (rdoIdCliente.Checked)
                 {
-                    cliente = cliente.ConsultarClienteId(int.Parse(txtPesquisar.Text));
-                    if (cliente == null)
+                    if (Util.NumeroInteiroValido(txtPesquisar.Text))
                     {
-                        MessageBox.Show("Cliente não encontrato!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        cliente = cliente.ConsultarClienteId(int.Parse(txtPesquisar.Text));
+                        if (cliente == null)
+                        {
+                            MessageBox.Show("Cliente não encontrato!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Informe um número inteiro válido!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }
                 else if (rdoNomeCliente.Checked)
                 {
-                    cliente = cliente.ConsultarCliente(txtPesquisar.Text);
-                    if (cliente == null)
+                    if(Util.ContemLetras(txtPesquisar.Text) && !Util.ContemNumeros(txtPesquisar.Text))
                     {
-                        MessageBox.Show("Cliente não encontrato!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
+                        cliente = cliente.ConsultarCliente(txtPesquisar.Text);
+                        if (cliente == null)
+                        {
+                            MessageBox.Show("Cliente não encontrato!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("Informe um nome válido!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }            
                 }
 
                 MessageBox.Show("Cliente selecionado com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -77,12 +94,11 @@ namespace Desafio02MiniERP
                 notaFiscal.IdCliente = cliente.Id;
                 notaFiscal.GravarNotaFiscal();
                 notaFiscal.AtribuirIdNotaFiscal();
-                //MessageBox.Show("id da nota: " + notaFiscal.IdNota.ToString());
-                //notasFiscais.Add(notaFiscal);
                 grpSelecionarCliente.Enabled = false;
                 grpAdicionarProdutos.Enabled = true;
             }
         }
+
         List<Produto> listaProdutos = new List<Produto>();
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -96,40 +112,42 @@ namespace Desafio02MiniERP
             {
                 if (rdoIdProduto.Checked)
                 {
-                    produto = produto.ConsultarProdutoId(int.Parse(txtAdicionar.Text));
-                    if (produto == null)
+                    if (Util.NumeroInteiroValido(txtAdicionar.Text))
                     {
-                        MessageBox.Show("Produto não encontrato!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
+                        produto = produto.ConsultarProdutoId(int.Parse(txtAdicionar.Text));
+                        if (produto == null)
+                        {
+                            MessageBox.Show("Produto não encontrato!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("Informe um número inteiro válido!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }              
                 }
-                else if (rdoNomeCliente.Checked)
+                else if (rdoDescricao.Checked)
                 {
-                    produto = produto.ConsultarProduto(txtAdicionar.Text);
-                    if (produto == null)
+                    if (Util.ContemLetrasOuNumeros(txtAdicionar.Text) )
                     {
-                        MessageBox.Show("Produto não encontrato!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
+                        produto = produto.ConsultarProduto(txtAdicionar.Text);
+                        if (produto == null)
+                        {
+                            MessageBox.Show("Produto não encontrato!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("Informe uma descrição de produto válido!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }               
                 }
 
                 MessageBox.Show("Produto adicionado com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //NotaFiscal notaFiscal = new NotaFiscal();
-                //notaFiscal = notasFiscais[0];
-                //notaFiscal.NotaProdutos = new List<NotaProduto>()
-                //{
-                //    new NotaProduto()
-                //    {
-                //        IdNotaFiscal = notaFiscal.IdNota, IdProduto = produto.Id
-                //    }
-                //};
                 notaFiscal.NotaProdutos.Add(new NotaProduto(notaFiscal.IdNota, produto.Id));
-
-                //Add(new NotaProduto(notaFiscal.IdNota, produto.Id));
                 listaProdutos.Add(produto);
-                
-                //MessageBox.Show(produto.Descricao);
-                // dgvProdutos.DataSource = listaProdutos;
                 dgvProdutos.Rows.Clear();
                 listaProdutos.ForEach(produto =>
                 {
@@ -144,8 +162,8 @@ namespace Desafio02MiniERP
                 });
                 var total = listaProdutos.Sum(x => x.Valor);
                 notaFiscal.TotalPagar = total;
-                lblTotal.Text = total.ToString("C");
-
+                lblTotal.Text = total.ToString();
+                btnGerarNfe.Enabled = true;
             }
         }
 
@@ -158,12 +176,7 @@ namespace Desafio02MiniERP
                 {
                     item.GravarNotaProduto();
                 }
-                grpSelecionarCliente.Enabled = true;
-                grpAdicionarProdutos.Enabled = false;
-                listaProdutos.Clear();
-                //notaFiscal.NotaProdutos.ForEach(notaProdutos => {
-                //    notaProdutos.GravarNotaProduto();
-                //    });
+                LimparCampos();
             }
             else
             {
@@ -171,11 +184,24 @@ namespace Desafio02MiniERP
             }
         }
 
-        private void btnNovo_Click(object sender, EventArgs e)
+        private void btnGerarPdf_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Em construção...", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void LimparCampos()
         {
             grpSelecionarCliente.Enabled = true;
             grpAdicionarProdutos.Enabled = false;
+            rdoIdCliente.Checked = false;
+            rdoNomeCliente.Checked = false;
+            rdoIdProduto.Checked = false;
+            rdoDescricao.Checked = false;
+            txtPesquisar.Clear();
+            txtAdicionar.Clear();
             listaProdutos.Clear();
-        }  
+            dgvProdutos.Rows.Clear();
+            lblTotal.Text = "00,00";
+        }
     }
 }

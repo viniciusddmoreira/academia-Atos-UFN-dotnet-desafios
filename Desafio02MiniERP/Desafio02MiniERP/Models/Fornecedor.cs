@@ -30,13 +30,9 @@ namespace Desafio02MiniERP.Models
 
         public bool ValidarCamposFornecedor(Fornecedor fornecedor)
         {
-            if (!(Util.CnpjValido(Cnpj) && Util.NomeValido(NomeFantasia) && Util.NomeValido(RazaoSocial))) return false;
-            //if (Util.ContemLetras(Cnpj) && Util.ContemNumeros(NomeFantasia) && Util.ContemNumeros(RazaoSocial)) return false;
+            if (!(Util.CnpjValido(Cnpj) && Util.ContemLetrasOuNumeros(NomeFantasia) && Util.ContemLetrasOuNumeros(RazaoSocial))) return false;            
 
             return true;
-            //if (String.IsNullOrEmpty(RazaoSocial)) return false;
-            //if (String.IsNullOrEmpty(NomeFantasia)) return false;
-            //if (String.IsNullOrEmpty(Cnpj)) return false;
         }
 
         public bool GravarFornecedor()

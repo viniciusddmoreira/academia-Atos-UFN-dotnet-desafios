@@ -12,10 +12,11 @@ namespace Desafio02MiniERP.Models
 {
     internal class NotaFiscal
     {
+
         public int IdNota { get; set; }
         public Cliente Cliente { get; set; }
 
-        public int IdCliente { get; set; } // ou public Cliente Cliente { get; set; }
+        public int IdCliente { get; set; }
         public List<NotaProduto> NotaProdutos { get; set; } = new List<NotaProduto>();
         public DateTime DataCompra { get; set; }
         public decimal TotalPagar { get; set; }

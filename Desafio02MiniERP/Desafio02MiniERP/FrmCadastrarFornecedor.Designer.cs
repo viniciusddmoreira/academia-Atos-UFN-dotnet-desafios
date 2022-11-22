@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblRazaoSocial = new System.Windows.Forms.Label();
             this.lblNomeFantasia = new System.Windows.Forms.Label();
             this.lblCnpj = new System.Windows.Forms.Label();
@@ -80,14 +80,14 @@
             this.txtRazaoSocial.Location = new System.Drawing.Point(12, 27);
             this.txtRazaoSocial.Name = "txtRazaoSocial";
             this.txtRazaoSocial.Size = new System.Drawing.Size(224, 23);
-            this.txtRazaoSocial.TabIndex = 4;
+            this.txtRazaoSocial.TabIndex = 0;
             // 
             // txtNomeFantasia
             // 
             this.txtNomeFantasia.Location = new System.Drawing.Point(12, 80);
             this.txtNomeFantasia.Name = "txtNomeFantasia";
             this.txtNomeFantasia.Size = new System.Drawing.Size(224, 23);
-            this.txtNomeFantasia.TabIndex = 5;
+            this.txtNomeFantasia.TabIndex = 2;
             // 
             // mtxCnpj
             // 
@@ -95,7 +95,7 @@
             this.mtxCnpj.Mask = "00,000,000/0000-00";
             this.mtxCnpj.Name = "mtxCnpj";
             this.mtxCnpj.Size = new System.Drawing.Size(120, 23);
-            this.mtxCnpj.TabIndex = 6;
+            this.mtxCnpj.TabIndex = 3;
             this.mtxCnpj.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             // 
             // dgvFornecedor
@@ -145,8 +145,8 @@
             // ColCnpj
             // 
             this.ColCnpj.DataPropertyName = "cnpj";
-            dataGridViewCellStyle2.NullValue = null;
-            this.ColCnpj.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.NullValue = null;
+            this.ColCnpj.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColCnpj.HeaderText = "CNPJ";
             this.ColCnpj.Name = "ColCnpj";
             this.ColCnpj.ReadOnly = true;
@@ -158,7 +158,7 @@
             this.btnEditar.Location = new System.Drawing.Point(174, 178);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 8;
+            this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -169,7 +169,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(255, 178);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 9;
+            this.btnExcluir.TabIndex = 7;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -180,7 +180,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(242, 26);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(79, 25);
-            this.btnPesquisar.TabIndex = 10;
+            this.btnPesquisar.TabIndex = 1;
             this.btnPesquisar.Text = "Pesquisar ...";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -190,7 +190,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(93, 178);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 12;
+            this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -201,7 +201,7 @@
             this.btnNovo.Location = new System.Drawing.Point(12, 178);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
-            this.btnNovo.TabIndex = 13;
+            this.btnNovo.TabIndex = 4;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);

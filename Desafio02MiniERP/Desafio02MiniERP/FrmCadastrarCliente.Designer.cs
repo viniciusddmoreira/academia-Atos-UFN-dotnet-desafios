@@ -103,14 +103,14 @@
             this.txtNome.Location = new System.Drawing.Point(12, 27);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(210, 23);
-            this.txtNome.TabIndex = 5;
+            this.txtNome.TabIndex = 0;
             // 
             // txtEndereco
             // 
             this.txtEndereco.Location = new System.Drawing.Point(11, 83);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(313, 23);
-            this.txtEndereco.TabIndex = 7;
+            this.txtEndereco.TabIndex = 2;
             // 
             // mtxCpf
             // 
@@ -118,7 +118,7 @@
             this.mtxCpf.Mask = "000,000,000-00";
             this.mtxCpf.Name = "mtxCpf";
             this.mtxCpf.Size = new System.Drawing.Size(109, 23);
-            this.mtxCpf.TabIndex = 9;
+            this.mtxCpf.TabIndex = 3;
             // 
             // mtxTelefone
             // 
@@ -126,14 +126,14 @@
             this.mtxTelefone.Mask = "(00)00000-0000";
             this.mtxTelefone.Name = "mtxTelefone";
             this.mtxTelefone.Size = new System.Drawing.Size(87, 23);
-            this.mtxTelefone.TabIndex = 10;
+            this.mtxTelefone.TabIndex = 4;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(105, 139);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(219, 23);
-            this.txtEmail.TabIndex = 11;
+            this.txtEmail.TabIndex = 5;
             // 
             // btnNovo
             // 
@@ -141,7 +141,7 @@
             this.btnNovo.Location = new System.Drawing.Point(12, 180);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
-            this.btnNovo.TabIndex = 17;
+            this.btnNovo.TabIndex = 6;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
@@ -151,7 +151,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(93, 180);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 16;
+            this.btnSalvar.TabIndex = 7;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -162,7 +162,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(255, 180);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 15;
+            this.btnExcluir.TabIndex = 9;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -173,7 +173,7 @@
             this.btnEditar.Location = new System.Drawing.Point(174, 180);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 14;
+            this.btnEditar.TabIndex = 8;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -184,7 +184,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(228, 25);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(79, 25);
-            this.btnPesquisar.TabIndex = 18;
+            this.btnPesquisar.TabIndex = 1;
             this.btnPesquisar.Text = "Pesquisar ...";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -258,7 +258,7 @@
             this.colCpf.ReadOnly = true;
             this.colCpf.Width = 90;
             // 
-            // frmCadastrarCliente
+            // FrmCadastrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -279,7 +279,7 @@
             this.Controls.Add(this.lblEndereco);
             this.Controls.Add(this.lblCpf);
             this.Controls.Add(this.lblNome);
-            this.Name = "frmCadastrarCliente";
+            this.Name = "FrmCadastrarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();

@@ -35,19 +35,20 @@
             // lblSobre
             // 
             this.lblSobre.AutoSize = true;
-            this.lblSobre.Location = new System.Drawing.Point(79, 26);
+            this.lblSobre.Location = new System.Drawing.Point(78, 18);
             this.lblSobre.Name = "lblSobre";
-            this.lblSobre.Size = new System.Drawing.Size(249, 30);
-            this.lblSobre.TabIndex = 0;
+            this.lblSobre.Size = new System.Drawing.Size(249, 45);
+            this.lblSobre.TabIndex = 1;
             this.lblSobre.Text = "Desafio desenvolvido na academia .NET entre \r\na empresa Atos e a Universidade Fra" +
-    "nciscana.";
+    "nciscana \r\nutilizando Windows Forms e ADO.NET.\r\n";
+            this.lblSobre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BtnOkSobre
             // 
-            this.BtnOkSobre.Location = new System.Drawing.Point(155, 81);
+            this.BtnOkSobre.Location = new System.Drawing.Point(165, 81);
             this.BtnOkSobre.Name = "BtnOkSobre";
             this.BtnOkSobre.Size = new System.Drawing.Size(75, 23);
-            this.BtnOkSobre.TabIndex = 1;
+            this.BtnOkSobre.TabIndex = 0;
             this.BtnOkSobre.Text = "OK";
             this.BtnOkSobre.UseVisualStyleBackColor = true;
             this.BtnOkSobre.Click += new System.EventHandler(this.BtnOkSobre_Click);
@@ -56,7 +57,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(414, 134);
+            this.ClientSize = new System.Drawing.Size(414, 116);
             this.Controls.Add(this.BtnOkSobre);
             this.Controls.Add(this.lblSobre);
             this.Name = "FrmSobre";

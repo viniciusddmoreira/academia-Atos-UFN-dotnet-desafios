@@ -35,21 +35,11 @@ namespace Desafio02MiniERP.Models
         }
 
         public bool ValidarCamposProduto()
-        {
-            //MessageBox.Show("descricao " + Util.NomeValido(Descricao).ToString());
-            //MessageBox.Show("codigo barra " + Util.ContemLetrasOuNumeros(CodigoBarra).ToString());
-            //MessageBox.Show("valor " + Util.NumeroRealValido(Valor.ToString()).ToString());
-            //MessageBox.Show("IdFornecedor " + Util.NumeroInteiroValido(IdFornecedor.ToString()).ToString());
-
+        {         
             if (!(Util.ContemLetrasOuNumeros(Descricao) && Util.ContemLetrasOuNumeros(CodigoBarra) && 
                 Util.NumeroRealValido(Valor.ToString()) && Util.NumeroInteiroValido(IdFornecedor.ToString()))) return false;
-
-            //if (Util.ContemLetras(Cnpj) && Util.ContemNumeros(NomeFantasia) && Util.ContemNumeros(RazaoSocial)) return false;
-
-            return true;
-            //if (String.IsNullOrEmpty(RazaoSocial)) return false;
-            //if (String.IsNullOrEmpty(NomeFantasia)) return false;
-            //if (String.IsNullOrEmpty(Cnpj)) return false;
+         
+            return true;       
         }
 
         public bool GravarProduto()
@@ -181,8 +171,9 @@ namespace Desafio02MiniERP.Models
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
-                {
-                    if (reader.GetString(1) == descricao)
+                {                 
+                    if (reader.GetString(3) == descricao)
+                       
                     {
                         Id = reader.GetInt32(0);
                         CodigoBarra = reader.GetString(1);
@@ -265,16 +256,11 @@ namespace Desafio02MiniERP.Models
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                //if (dt == null) 
-                //    MessageBox.Show("eh nulo");
-                //else
-                //    MessageBox.Show("nao eh nulo");
+                adapter.Fill(dt);             
                 return dt;
             }
             catch (Exception e)
             {
-                MessageBox.Show("azedo: " + e.Message);
                 return null;
             }
             finally
