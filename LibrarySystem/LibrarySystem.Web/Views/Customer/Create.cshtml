@@ -1,0 +1,94 @@
+﻿@model LibrarySystem.Data.Models.Customer
+
+@{
+	ViewData["Title"] = "Create";
+}
+
+<h1>Novo Cliente</h1>
+
+<h4>Preencha os campos a baixo para adicionar um novo cliente</h4>
+<hr />
+<div>
+	<a class="btn btn-primary" asp-action="Index">Voltar </a>
+</div>
+<br />
+<div class="row">
+	<div class="col-md">
+		<form asp-action="Create">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="card">
+				<div class="card-header">Informações Pessoas</div>
+				<div class="card-body row">
+					<div class="form-group col-md">
+						<label asp-for="Cpf" class="control-label"></label>
+						<input asp-for="Cpf" class="form-control" />
+						<span asp-validation-for="Cpf" class="text-danger"></span>
+					</div>
+					<div class="form-group col-md">
+						<label asp-for="Name" class="control-label"></label>
+						<input asp-for="Name" class="form-control" />
+						<span asp-validation-for="Name" class="text-danger"></span>
+					</div>
+				</div>
+			</div>
+			<br />
+			<div class="card">
+				<div class="card-header">Endereço</div>
+				<div class="card-body row">
+					<div class="col-md">
+						<div class="form-group">
+							<label asp-for="Address" class="control-label"></label>
+							<input asp-for="Address" class="form-control" />
+							<span asp-validation-for="Address" class="text-danger"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="District" class="control-label"></label>
+							<input asp-for="District" class="form-control" />
+							<span asp-validation-for="District" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="form-group">
+							<label asp-for="City" class="control-label"></label>
+							<input asp-for="City" class="form-control" />
+							<span asp-validation-for="City" class="text-danger"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br />
+			<div class="card">
+				<div class="card-header">Contato</div>
+				<div class="card-body row">
+					<div class="col-md">
+						<div class="form-group">
+							<label asp-for="PhoneNumber" class="control-label"></label>
+							<input asp-for="PhoneNumber" class="form-control" />
+							<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="CellNumber" class="control-label"></label>
+							<input asp-for="CellNumber" class="form-control" />
+							<span asp-validation-for="CellNumber" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="form-group col-md">
+						<label asp-for="Email" class="control-label"></label>
+						<input asp-for="Email" class="form-control" />
+						<span asp-validation-for="Email" class="text-danger"></span>
+					</div>
+				</div>
+			</div>
+			<br />
+			<div class="form-group">
+				<input type="submit" value="Salvar" class="btn btn-success" />
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
