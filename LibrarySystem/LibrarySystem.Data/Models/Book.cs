@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -34,8 +35,10 @@ namespace LibrarySystem.Data.Models
         [StringLength(100)]
         [Unicode(false)]
         public string Publisher { get; set; }
-        [Column("publication_year", TypeName = "datetime")]
-        public DateTime PublicationYear { get; set; }
+        [Column("publication_year", TypeName = "date")]
+		[DataType(DataType.Date)]
+		[DisplayName("Data da Publicação")]
+		public DateTime PublicationYear { get; set; }
         [Column("edition")]
         [StringLength(50)]
         [Unicode(false)]

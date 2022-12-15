@@ -7,10 +7,10 @@ namespace LibrarySystem.Web.Controllers
 {
 	public class CustomerController : Controller
 	{
-		private ServiceCustomer serviceCustomer = new ServiceCustomer();
+		private ServiceCustomer _serviceCustomer = new ServiceCustomer();
 		public IActionResult Index()
 		{
-			List<Customer> listCustomer = serviceCustomer.RepositoryCustomerProp.GetAll();
+			List<Customer> listCustomer = _serviceCustomer.RepositoryCustomerProp.GetAll();
 			return View(listCustomer);
 		}
 
@@ -24,7 +24,7 @@ namespace LibrarySystem.Web.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				serviceCustomer.RepositoryCustomerProp.Include(customer);
+				_serviceCustomer.RepositoryCustomerProp.Include(customer);
 				return RedirectToAction("Index");
 			}
 
@@ -33,14 +33,14 @@ namespace LibrarySystem.Web.Controllers
 
 		public IActionResult Details(int id)
 		{
-			Customer customer = serviceCustomer.RepositoryCustomerProp.GetPrimaryKey(id);
+			Customer customer = _serviceCustomer.RepositoryCustomerProp.GetPrimaryKey(id);
 
 			return View(customer);
 		}
 
 		public IActionResult Edit(int id)
 		{
-			Customer customer = serviceCustomer.RepositoryCustomerProp.GetPrimaryKey(id);
+			Customer customer = _serviceCustomer.RepositoryCustomerProp.GetPrimaryKey(id);
 
 			return View(customer);
 		}
@@ -48,14 +48,14 @@ namespace LibrarySystem.Web.Controllers
 		[HttpPost]
 		public IActionResult Edit(Customer customer)
 		{
-			Customer EditCustomer = serviceCustomer.RepositoryCustomerProp.Edit(customer);
+			Customer editCustomer = _serviceCustomer.RepositoryCustomerProp.Edit(customer);
 
-			return RedirectToAction("Details", new {EditCustomer.Id});
+			return RedirectToAction("Details", new {editCustomer.Id});
 		}
 
 		public IActionResult Delete(int id)
 		{
-			serviceCustomer.RepositoryCustomerProp.Delete(id);
+			_serviceCustomer.RepositoryCustomerProp.Delete(id);
 			return RedirectToAction("Index");
 		}
 	}
